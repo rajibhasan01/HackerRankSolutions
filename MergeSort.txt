@@ -1,0 +1,45 @@
+def mergeSort(num):
+    if len(num) >1:
+        mid = len(num)//2
+        L = num[:mid]
+        R = num [mid:]
+
+        mergeSort(L)
+        mergeSort(R)
+
+        i = j = k = 0
+
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                num [k] = L[i]
+                i = i+1
+            else:
+                num [k] = R[j]
+                j = j+1
+            k = k+1
+
+        while i < len(L):
+            num [k] = L[i]
+            i = i+1
+            k = k+1
+        while j <len(R):
+            num [k] = R[j]
+            j = j+1
+            k = k+1
+
+def printList(num):
+    for i in range(len(num)):
+        print(num[i], end =" ")
+    print()
+
+if __name__ == "__main__":
+    a = []
+    n = int(input("How Many Number: "))
+    for i in range(n):
+        a.append(int(input("Enter Num...%d: "%(i+1))))
+
+    print("The given list.", end="\n")
+    printList(a)
+    mergeSort(a)
+    print("The sorted list.", end="\n")
+    printList(a)

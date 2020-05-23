@@ -1,0 +1,39 @@
+import math
+
+t = int(input())
+for _ in range(t):
+    a, b = input().strip().split(' ')
+    a = int(a)
+    b = int(b)
+
+    sqrtA = math.ceil(math.sqrt(a))
+    sqrtB = math.floor(math.sqrt(b))
+
+    print(sqrtB - sqrtA + 1)
+
+*******************************************************
+
+def squares(a, b):
+    k = 0
+    m = max(a,b) //2
+
+    for i in range(2,m+1):
+        if pow(i,2) >= a and pow(i,2) <= b:
+            k += 1
+        elif pow(i,2) > b:
+            break
+    return k
+
+if __name__ == '__main__':
+
+    q = int(input())
+
+    for q_itr in range(q):
+        ab = input().split()
+
+        a = int(ab[0])
+
+        b = int(ab[1])
+
+        result = squares(a, b)
+        print(result)

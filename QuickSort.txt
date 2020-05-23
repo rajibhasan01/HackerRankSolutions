@@ -1,0 +1,30 @@
+def quickSort(num):
+    if len(num) < 1:
+        return num
+    else:
+        pivot = num.pop()
+        greate_num = []
+        lower_num = []
+
+        for i in num:
+            if i > pivot:
+                greate_num.append(i)
+            else:
+                lower_num.append(i)
+
+        return quickSort(lower_num)+ [pivot]+quickSort(greate_num)
+def printList(num):
+    for i in range(len(num)):
+        print(num[i], end =" ")
+    print()
+
+if __name__ == "__main__":
+    a = []
+    n = int(input("How Many Number: "))
+    for i in range(n):
+        a.append(int(input("Enter Num...%d: "%(i+1))))
+
+    print("The given list.", end="\n")
+    printList(a)
+    print("The sorted list.", end="\n")
+    printList(quickSort(a))

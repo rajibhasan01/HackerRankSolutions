@@ -1,0 +1,44 @@
+def check(val):
+    if val < 0 or val > 100:
+        print("Invalid :")
+        val = int(input())
+        return check(val)
+    return val
+
+
+n = int(input())
+a = []
+for i in range (n):
+    val = int(input())
+    a.append(check(val))
+
+###################################################
+
+def check(val,n):
+    if n < 1 or n > 60:
+        return False
+    for i in val:
+        if i < 0 or i > 100:
+            return False
+    return True
+
+def grading(list):
+    for i in list:
+        if i < 38:
+            print(i)
+        else:
+            cal = i // 5 + 1
+            if cal * 5 - i < 3:
+                print(cal*5)
+            else:
+                print(i)
+
+n = int(input())
+a = []
+for i in range (n):
+    val = int(input())
+    a.append(val)
+
+if check(a,n) == True:
+    grading(a)
+

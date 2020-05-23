@@ -1,0 +1,18 @@
+class Salary:
+    def __init__(self, pay, bonus):
+        self.pay = pay
+        self.bonus = bonus
+    def annual_salary(self):
+        return (self.pay * 12) + self.bonus
+
+class Employee:
+    def __init__(self, name, age, pay, bonus):
+        self.name = name
+        self.age = age
+        self.obj = Salary(pay, bonus)
+
+    def total_salary(self):
+        return self.obj.annual_salary()
+
+emp = Employee("Md. Rajib Hasan",24,16000, 10000)
+print("Name: %s\nAge: %d\nSalary: %d\nTotal Salary: %d" %(emp.name, emp.age,emp.obj.pay, emp.total_salary()))

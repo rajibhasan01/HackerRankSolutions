@@ -1,0 +1,42 @@
+def jumpingOnClouds(c, k):
+    return 100 - sum([3 if c[i] == 1 else 1 for i in range(0, n, k)])
+
+
+if __name__ == '__main__':
+
+    nk = input().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    c = list(map(int, input().rstrip().split()))
+
+    result = jumpingOnClouds(c, k)
+    print(result)
+
+###################################################
+
+def jumpingOnClouds(c, k):
+    i = 0
+    sum = 100
+
+    for i in range(0,n,k):
+        if c[i] == 1:
+            sum = sum - 3
+        else:
+            sum = sum - 1
+        
+    return sum
+if __name__ == '__main__':
+
+    nk = input().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    c = list(map(int, input().rstrip().split()))
+
+    result = jumpingOnClouds(c, k)
+    print(result)

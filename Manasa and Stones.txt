@@ -1,0 +1,20 @@
+
+def stones(n, a, b):
+    return sorted(set([a*i+b*(n-1-i) for i in range(n)]))
+
+
+if __name__ == '__main__':
+    
+
+    T = int(input())
+
+    for T_itr in range(T):
+        n = int(input())
+
+        a = int(input())
+
+        b = int(input())
+
+        result = stones(n, a, b)
+
+        print(' '.join(map(str, result)))

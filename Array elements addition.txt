@@ -1,0 +1,28 @@
+from functools import reduce
+n = int(input())
+if n> 0:
+    a = list(map(int,input().rstrip().split()[:n]))
+    p = 0
+    for i in range(n):
+        if a[i] <= 1000:
+            continue
+        else:
+            p += 1
+    if p == 0:
+        e = reduce(lambda x,y: x+y,a)
+        print(e)
+
+
+#######################################
+
+from functools import reduce
+
+n = int(input())
+if n > 0:
+    a = list(map(int, input().rstrip().split()[:n]))
+    p = list(filter(lambda x: True if x > 1000 else False, a))
+    if len(p) == 0:
+        result = reduce(lambda x, y: x + y, a)
+        print(result)
+
+#########################################

@@ -1,0 +1,18 @@
+def check_array(list):
+    for i in list:
+        if i > pow(10,7) or i< 0:
+            return 0
+    return True
+n = int(input())
+if n > 0 and n <= pow(10,5):
+    arr = list(map(int, input().rstrip().split()))
+    chk = check_array(arr)
+    a = []
+    if chk == True:
+        m = max(arr)
+        c = 0
+        for i in arr:
+            if m == i:
+                c += 1
+
+    print(c)

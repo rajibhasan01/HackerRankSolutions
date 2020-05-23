@@ -1,0 +1,10 @@
+def repeatedString(s,n):
+    a = s.count("a") * (n//len(s))
+    b= s[:n%len(s)].count("a")
+    return a+b
+
+if __name__ == "__main__":
+    s = input()
+    n = int(input())
+    result = repeatedString(s,n)
+    print(result)

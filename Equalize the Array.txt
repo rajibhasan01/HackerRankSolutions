@@ -1,0 +1,13 @@
+def equalizeArray(arr):
+    a = []
+    for i in arr:
+        a.append(arr.count(i))
+    return n-max(a)
+if __name__ == '__main__':
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = equalizeArray(arr)
+    print(result)

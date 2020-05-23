@@ -1,0 +1,43 @@
+from collections import Counter
+def cutTheSticks(arr):
+    result = list()
+    l = len(arr)
+    for k,v in sorted(Counter(arr).items()):
+        print(l)
+        l-=v
+
+if __name__ == '__main__':
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = cutTheSticks(arr)
+
+####################################################################
+
+from collections import Counter
+def cutTheSticks(arr):
+    arr.sort()
+    a = {n}
+    k= []
+    for i in arr:
+        r = n
+        for j in arr:
+            if j < i:
+                r = r-1
+        a.add(r)
+    for i in a:
+        k.append(i)
+    k.sort(reverse=True)
+    return k
+
+if __name__ == '__main__':
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = cutTheSticks(arr)
+    for i in result:
+        print(i)

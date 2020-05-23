@@ -1,0 +1,21 @@
+def breakingRecords(scores):
+    m = scores[0]
+    x = scores[0]
+    k = 0
+    l = 0
+    for i in range(1,n):
+        if scores[i] > m:
+            m = scores[i]
+            k = k+1
+        elif scores[i] < x:
+            x = scores[i]
+            l = l+1
+    print(k,end=" ")
+    print(l)
+
+if __name__ == '__main__':
+    n = int(input())
+
+    scores = list(map(int, input().rstrip().split()[:n]))
+
+    result = breakingRecords(scores)

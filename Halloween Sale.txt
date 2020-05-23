@@ -1,0 +1,39 @@
+
+
+def howManyGames(p, d, m, s):
+    total_purchase = 0
+    i = 0
+    if p <= s:
+        i = p
+        total_purchase = 1
+    else:
+        print(total_purchase)
+        return
+
+    while i <= s:
+        if p - d > m:
+            p = p -d
+            if i + p <= s:
+               total_purchase += 1
+        else:
+            p = m
+            if i + p <= s:
+               total_purchase += 1
+
+        i = i + p
+    print(total_purchase)
+
+
+if __name__ == '__main__':
+
+    pdms = input().split()
+
+    p = int(pdms[0])
+
+    d = int(pdms[1])
+
+    m = int(pdms[2])
+
+    s = int(pdms[3])
+
+    answer = howManyGames(p, d, m, s)

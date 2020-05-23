@@ -1,0 +1,35 @@
+a = list(map(int, input().rstrip().split()[:4]))
+
+def validity_check(a):
+    if a[0] < 0 or a[2] < 0 or a[0] > 10000 or a[2] > 10000:
+        return False
+    if a[1] < 1 or a[3] < 1 or a[1] > 10000 or a[3] > 10000:
+        return False
+    return True
+def posibility_check(a):
+    if a[0] > a[2] and a[1] >= a[3]:
+        return 0
+    elif a[0] < a[2] and a[1] <= a[3]:
+        return 0
+    else:
+        return True
+
+def final_check(a,i =True):
+    k = 1
+    if a[0] < a[2]:
+        while i == True:
+            if k * a[1] + a[0] > k * a[3] + a[2]:
+                return "NO"
+            elif k * a[1] + a[0] == k * a[3] + a[2]:
+                return "YES"
+            k = k + 1
+
+
+
+chk = validity_check(a)
+if chk == True:
+    p_chk = posibility_check(a)
+    if p_chk == True:
+        print(final_check(a))
+    else:
+        print("NO")

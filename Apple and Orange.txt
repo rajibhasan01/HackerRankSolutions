@@ -1,0 +1,46 @@
+def check(h,t,s,a,o):
+    for i in h:
+        if i < 1 or i > 10**5:
+            return False
+    for i in t:
+        if i < 1 or i > 10**5:
+            return False
+
+    for i in s:
+        if i < 1 or i > 10**5:
+            return False
+
+    if h[0] <= t[0] or h[1] >= t[1]:
+        return False
+
+    return True
+def cal(p,list):
+    a = []
+    for i in list:
+        a.append(i+p)
+    return a
+
+
+def result(list):
+    p = 0
+    for i in list:
+        if i >= h[0] and i <= h[1]:
+            p = p+1
+    print(p)
+
+h = list(map(int, input().rstrip().split()[:2]))
+t = list(map(int, input().rstrip().split()[:2]))
+s = list(map(int, input().rstrip().split()[:2]))
+a = list(map(int, input().rstrip().split()[:s[0]]))
+o = list(map(int, input().rstrip().split()[:s[1]]))
+
+if check(h,t,s,a,o) == True:
+
+    apple_d = cal(t[0],a)
+    orange_d = cal(t[1],o)
+
+
+
+    result(apple_d)
+    result(orange_d)
+

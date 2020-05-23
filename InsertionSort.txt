@@ -1,0 +1,28 @@
+def insertionSort(num):
+    for i in range(1,len(num)):
+
+        key = num[i]
+        j = i-1
+
+        while j >= 0 and key < num[j]:
+            num[j+1] = num[j]
+            j-=1
+
+        num[j+1]=key
+
+def printList(num):
+    for i in range(len(num)):
+        print(num[i], end =" ")
+    print()
+
+if __name__ == "__main__":
+    a = []
+    n = int(input("How Many Number: "))
+    for i in range(n):
+        a.append(int(input("Enter Num...%d: "%(i+1))))
+
+    print("The given list.", end="\n")
+    printList(a)
+    insertionSort(a)
+    print("The sorted list.", end="\n")
+    printList(a)

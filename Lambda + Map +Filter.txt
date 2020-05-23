@@ -1,0 +1,23 @@
+a = [2,5,8,10,9,3]
+b = [1,4,7,8,5,1]
+
+p = map(lambda x: x*2, a)
+print(list(p))
+q = map(lambda x,y: x+y,a,b)
+print(list(q))
+
+################################
+
+a = [2,5,80,10,9,3]
+r = filter(lambda x: x%2 == 0, a)
+print(list(r))
+p = filter(lambda x: True if x>5 else False, a)
+print(list(p))
+
+#################################
+
+from functools import reduce
+a = [2,5,80,10,9,3]
+
+e = reduce(lambda x,y : x+y, a)
+print(e)

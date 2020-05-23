@@ -1,0 +1,57 @@
+def lsg(d,num):
+    for i in num:
+        if i % d != 0:
+            y.append(i)
+        else:
+            t = i // d
+            x.append(t)
+
+    if len(x) >= 2:
+        global s, p
+        s.append(d)
+        new_array = x + y
+        x.clear()
+        y.clear()
+        lsg(d, new_array)
+    else:
+        d += 1
+        x.clear()
+        y.clear()
+        p = num
+        if d <= m:
+           lsg(d, p)
+        else:
+            new = s+p
+            sum= 1
+            for i in new:
+                sum= sum * i
+            print("Losagu is ..: ",sum)
+
+
+
+
+
+x = []
+y = []
+a = []
+s = []
+new_array = []
+n = int ( input("Enter the length of the array...: "))
+for i in range(n):
+    try:
+       value = int(input("Enter Num...%d : "%(i+1)))
+       a.append(value)
+    except:
+        print("Please Enter an Integer Value")
+        value = int(input("Enter Num...%d : "%(i+1)))
+        a.append(value)
+
+print("The list is below-\n",a)
+m = a[0]
+for i in a:
+    if i > m:
+        m = i
+m = m // 2
+lsg(2,a)
+
+

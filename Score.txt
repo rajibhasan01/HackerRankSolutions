@@ -1,0 +1,24 @@
+def win_ratio(p,q):
+    x = 0
+    y = 0
+    for i in range(3):
+        if p[i] > q[i]:
+            x += 1
+        elif p[i] < q[i]:
+            y +=1
+    return "{} {}".format(x,y)
+def checker(num):
+    for i in num:
+        if i < 1 or i > 100:
+            return 0
+
+    return True
+
+a = list(map(int, input().rstrip().split()[:3]))
+b = list(map(int, input().rstrip().split()[:3]))
+
+x = checker(a)
+y = checker(b)
+c = 0
+if x == True and y == True:
+    print(win_ratio(a,b))

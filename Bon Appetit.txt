@@ -1,0 +1,35 @@
+def validity_check(list, bill):
+    if list[0] <2 or list[0]>10**5 or list[1] < 0 or list[1] >= list[0]:
+        return 0
+    for i in bill:
+        if i < 0 or i > 10**4:
+            return 0
+    return True
+
+def total_bill(bill):
+    sum = 0
+    for i in bill:
+        sum = sum + i
+    return sum
+
+def calculation(b,s):
+    if b < 0 or b > s:
+        return 0
+    return True
+
+arr = list(map(int, input().rstrip().split()[:2]))
+bill = list(map(int, input().rstrip().split()[:arr[0]]))
+chq = validity_check(arr, bill)
+
+if chq == True:
+    s = total_bill(bill) / 2
+    b = int(input())
+    cal = calculation(b,s)
+    if cal == True:
+        bill.remove(bill[arr[1]])
+        s1 = total_bill(bill) / 2
+        if b == s1:
+            print("Bon Appetit")
+        else:
+            print("%.d"%(s-s1))
+

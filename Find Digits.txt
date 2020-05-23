@@ -1,0 +1,21 @@
+
+def findDigits(n):
+    k = 0
+    for i in n:
+        try:
+            if int(n)% int(i) == 0:
+                k += 1
+        except:
+            continue
+    return k
+
+
+if __name__ == '__main__':
+
+    t = int(input())
+
+    for t_itr in range(t):
+        n = input()
+
+        result = findDigits(n)
+        print(result)

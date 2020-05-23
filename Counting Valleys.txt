@@ -1,0 +1,35 @@
+def validity_check(n,s):
+    if n < 2 or n > 10**6:
+        return 0
+
+    for i in range(n):
+        if s[i] == "U" or s[i] =="D":
+            continue
+        else:
+            return 0
+    return True
+
+n = int(input())
+s = input()
+
+chq = validity_check(n,s)
+if chq == True:
+    p = 0
+    a = []
+    r = 0
+    for i in range(n):
+        if s[i]=="D":
+            p = p+1
+            a.append(p)
+        elif s[i]=="U":
+            p = p-1
+            a.append(p)
+    for j in range(len(a)):
+        if a[j] == 0:
+            if a[j-1] > 0:
+                r = r+1
+
+    print(r)
+
+
+

@@ -1,0 +1,77 @@
+def validity_check(a,k,d):
+    if a[0] < 1 or a[0] > 10**6 or a[1] > 1000 or a[1] < 1 or a[2] > 1000 or a[2] < 1:
+        return 0
+    for i in k:
+        if i < 1 or i > 10**6:
+            return 0
+    for i in d:
+        if i < 1 or i > 10**6:
+            return 0
+    return True
+
+
+
+arr = list(map(int,input().rstrip().split()[:3]))
+k = list(map(int, input().rstrip().split()))
+d = list(map(int, input().rstrip().split()))
+chq = validity_check(arr,k,d)
+
+if chq == True:
+    a =[]
+    b = arr[0]
+    for i in k:
+        for j in d:
+            k = 0
+            k = i + j
+            a.append(k)
+    m = 0
+    for i in a:
+        if b >= i:
+            if m < i:
+                m = i
+
+    if m == 0:
+        print("-1")
+    else:
+        print(m)
+
+
+####################################################
+
+
+def validity_check(a,k,d):
+    if a[0] < 1 or a[0] > 10**6 or a[1] > 1000 or a[1] < 1 or a[2] > 1000 or a[2] < 1:
+        return 0
+    for i in k:
+        if i < 1 or i > 10**6:
+            return 0
+    for i in d:
+        if i < 1 or i > 10**6:
+            return 0
+    return True
+
+
+
+arr = list(map(int,input().rstrip().split()[:3]))
+k = list(map(int, input().rstrip().split()))
+d = list(map(int, input().rstrip().split()))
+chq = validity_check(arr,k,d)
+
+if chq == True:
+    a =[]
+    b = arr[0]
+    for i in k:
+        for j in d:
+            k = 0
+            k = i + j
+            a.append(k)
+    m = 0
+    result = []
+    for i in a:
+        if b >= i:
+            result.append(i)
+    if len(result)==0:
+        print("-1")
+    else:
+        r = max(result)
+        print(r)

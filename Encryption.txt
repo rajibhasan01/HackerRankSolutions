@@ -1,0 +1,45 @@
+import math
+
+def sentence(a,c,r):
+    p = []
+    xy = []
+    for g in a:
+        xy.append(len(g))
+    m = min(xy)
+
+    for i in range(c):
+        x = ""
+        if m == i:
+            r -= 1
+        for j in range(r):
+            x = x + a[j][i]
+
+        print(x, end=" ")
+
+def makeSentence(r,c):
+    a =[]
+    j = c
+    k = 0
+    for i in range(r):
+        a.append(s[k:j])
+        k = j
+        j = j + c
+    sentence(a,c,r)
+
+
+def encryption(s):
+    l =len(s)
+    r= math.floor(math.sqrt(l))
+    c = math.ceil(math.sqrt(l))
+    if r*c < l:
+        r = c
+        makeSentence(r,c)
+    else:
+        makeSentence(r, c)
+
+
+if __name__ == '__main__':
+
+    s = input()
+    result = encryption(s)
+

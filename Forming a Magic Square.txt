@@ -1,0 +1,55 @@
+def validity_check(a):
+    for i in a:
+        for j in i:
+            if j > 9 or j < 1:
+                return 0
+
+    return True
+
+def CatAndMouse(list):
+    row = []
+    col = []
+    #Left to right search
+    for i in range(3):
+        if sum(list[i]) == 15:
+            continue
+        else:
+            row.append(i)
+
+    #Top to bottom search
+    s = 0
+    for l in range(3):
+        s = list[0][l] + list[1][l] +list[2][l]
+        if s == 15:
+            continue
+        else:
+            col.append(l)
+    print(row)
+    print(col)
+    r_c = []
+    for r in row:
+        for c in col:
+            if r == c:
+                r_c.append(r)
+    print(r_c)
+    for x in r_c:
+        sum_r = list[x][0] + list [x][1] + list[x][2]
+        sum_c = list[0][x] + list [1][x] + list[2][x]
+        if sum_r < 15 and sum_c < 15:
+            p = 15 - sum_r
+            list[x][0] = list[x][0] + p
+            sum_c = list[0][x] + list [1][x] + list[2][x]
+        elif:
+            
+
+
+
+
+a = []
+for i in range(3):
+    a.append(list(map(int,input().rstrip().split()[:3])))
+
+chq = validity_check(a)
+if chq == True:
+    print(a)
+    r = CatAndMouse(a)

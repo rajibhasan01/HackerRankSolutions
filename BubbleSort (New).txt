@@ -1,0 +1,25 @@
+def bubbleSort(num):
+    for i in range(len(num)-1, 0 , -1):
+        for j in range(i):
+            if int(num[j]) > int(num[j+1]):
+                t = num[j]
+                num[j] = num[j+1]
+                num[j+1] = t
+
+def printList(list):
+    b = " ".join(list)
+    return b
+
+n = int(input("Enter the number: "))
+a = []
+for i in range(n):
+    v = input("Enter Num...%d: "%(i+1))
+    while v.isdigit() != True:
+        print("Wrong Type Value!")
+        v = input("Enter Integer Value...%d: "%(i+1))
+    a.append(v)
+
+c = printList(a)
+print(c)
+bubbleSort(a)
+print("The Sorting Array is\n","->".join(a))

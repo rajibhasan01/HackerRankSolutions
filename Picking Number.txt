@@ -1,0 +1,22 @@
+def valid(a,n):
+    if n < 2 or n > 100:
+        return 0
+    for i in a:
+        if i < 0 or i > 100:
+            return 0
+    return True
+
+n = int(input())
+a = [int(i) for i in input().split()[:n]]
+if valid(a,n) == True:
+
+    new_num = a[0]
+    new_array = []
+    for i in range(n):
+        r = 0
+        pre_num = a[i]
+        for j in range(n):
+            if a[j] == pre_num or a[j] == pre_num + 1:
+                r = r + 1
+        new_array.append(r)
+    print(max(new_array))

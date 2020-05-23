@@ -1,0 +1,30 @@
+def check_validity(list):
+    for i in list:
+        if i > 100 or i < -100:
+            return 0
+    return True
+
+
+x = int(input())
+if x>0 and x<101:
+    arr = list(map(int, input().rstrip().split()[:x]))
+    chk = check_validity(arr)
+    p = []
+    n = []
+    z = []
+    if chk == True:
+        for i in arr:
+            if i > 0:
+                p.append(i)
+
+            elif i < 0:
+                n.append(i)
+            else:
+                z.append(i)
+
+        print("%.6f"%(len(p)/len(arr)))
+        print("%.6f"%(len(n)/len(arr)))
+        print("%.6f"%(len(z)/len(arr)))
+
+
+

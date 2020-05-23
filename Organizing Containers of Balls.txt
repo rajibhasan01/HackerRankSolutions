@@ -1,0 +1,32 @@
+def organizingContainers(container):
+    m = []
+    y = []
+
+    for i in range(len(container)):
+        k = 0
+        m.append(sum(container[i]))
+        for j in range(len(container)):
+            k = k + container[j][i]
+        y.append(k)
+    m.sort()
+    y.sort()
+    if m == y:
+        return "Possible"
+    return "Impossible"
+
+
+
+if __name__ == '__main__':
+
+    q = int(input())
+
+    for q_itr in range(q):
+        n = int(input())
+
+        container = []
+
+        for _ in range(n):
+            container.append(list(map(int, input().rstrip().split())))
+
+        result = organizingContainers(container)
+        print(result)

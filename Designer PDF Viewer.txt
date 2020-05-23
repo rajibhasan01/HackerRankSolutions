@@ -1,0 +1,9 @@
+n = list(map(int,input().rstrip().split()[:26]))
+m = input()
+a = []
+for i in m:
+    num = ord(i)
+    val = n[num-97]
+    a.append(val)
+r = max(a) * len(m)
+print(r)

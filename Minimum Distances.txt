@@ -1,0 +1,28 @@
+
+def minimumDistances(n,a):
+    d={}
+    min_diff = n
+    for i in range(n):
+
+        try:
+            # print(d[a[i]])
+            min_diff = min(i - d[a[i]], min_diff)
+            d[a[i]] = i
+            if min_diff == 1:
+              break
+        except:
+            d[a[i]] = i
+
+    if min_diff == n:
+        print(-1)
+    else:
+        print(min_diff)
+
+if __name__ == '__main__':
+
+    n = int(input())
+
+    a = list(map(int, input().rstrip().split()))
+
+    result = minimumDistances(n,a)
+

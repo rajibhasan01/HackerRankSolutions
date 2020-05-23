@@ -1,0 +1,32 @@
+s = [[int(i) for i in input().split(' ')] for j in range(3)]
+n = [s[i][j] for i in range(3) for j in range(3)]
+all_n = [[8,1,6,3,5,7,4,9,2],[6,1,8,7,5,3,2,9,4],[4,9,2,3,5,7,8,1,6],[2,9,4,7,5,3,6,1,8],[8,3,4,1,5,9,6,7,2],[4,3,8,9,5,1,2,7,6],[6,7,2,1,5,9,8,3,4],[2,7,6,9,5,1,4,3,8]]
+print(s)
+print(n)
+allsum = []
+for l in all_n:
+    allsum.append(sum([abs(n[i]-l[i]) for i in range(9)]))
+print(min(allsum))
+
+#########################################################
+
+def validity_check(n):
+    for i in n:
+        if i < 1 or i > 9:
+            return 0
+    return True
+
+s = [[int(i) for i in input().split()]for j in range(3)]
+n = [s[i][j] for i in range(3) for j in range(3)]
+if validity_check(n) == True:
+    arr = [[8, 3, 4, 1, 5, 9, 6, 7, 2], [4, 3, 8, 9, 5, 1, 2, 7, 6], [2, 7, 6, 9, 5, 1, 4, 3, 8],
+           [6, 7, 2, 1, 5, 9, 8, 3, 4], [4, 9, 2, 3, 5, 7, 8, 1, 6], [2, 9, 4, 7, 5, 3, 6, 1, 8],
+           [8, 1, 6, 3, 5, 7, 4, 9, 2], [6, 1, 8, 7, 5, 3, 2, 9, 4]]
+    a = []
+    for l in arr:
+        sum = 0
+        for i in range(9):
+            sum = sum + abs(l[i] - n[i])
+        a.append(sum)
+    result = min(a)
+    print(result)

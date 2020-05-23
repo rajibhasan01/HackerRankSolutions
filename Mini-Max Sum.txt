@@ -1,0 +1,25 @@
+def check_array(list):
+    for i in list:
+        if i > pow(10,9) or i< 0:
+            return 0
+    return True
+
+arr = list(map(int, input().rstrip().split()))
+chk = check_array(arr)
+a = []
+if chk == True:
+    sum = 0
+    for i in arr:
+        sum = sum + i
+
+    for i in arr:
+        a.append(sum-i)
+m = 0
+m1 = a[0]
+for i in a:
+    if m<i:
+        m = i
+    if m1>i:
+        m1= i
+
+print("{} {}".format(m1,m))

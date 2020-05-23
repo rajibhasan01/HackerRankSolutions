@@ -1,0 +1,179 @@
+def move_queen(n, updated_row, updated_col, r , c, obstacles):
+    p = 0
+    while True:
+        r = updated_row(r)
+        c = updated_col(c)
+        key = (r - 1) * n + c
+        if (c < 1 or c > n or r < 1 or r > n) or (key in obstacles):
+            return p
+        p += 1
+    return p
+
+# Complete the queensAttack function below.
+def queensAttack(n, k, r_q, c_q, obs):
+    obstacles = {}
+    for b in obs:
+        obstacles[(b[0] - 1) * n + b[1]] = None
+
+    p = 0
+    dr = [-1, -1, -1, 0, 0 , 1 , 1,1]
+    dc = [0, -1, 1, 1, -1 , 0 , 1,-1]
+    
+    for i in range(8):
+        p += move_queen(n, (lambda r: r + dr[i]), (lambda c: c + dc[i] ), r_q, c_q, obstacles)
+
+    return p
+
+
+########################################################################################
+
+def check(row,col):
+    for i in obstacles:
+        if i[0]==row and i[1]==col:
+            #print("r",i[0])
+            #print("c", i[1])
+            return 1
+    return 0
+
+def queensAttack(n, k, r_q, c_q, obstacles):
+    b = []
+    # if r_q != n or r_q != 0 and c_q != n or c_q != 0:
+    # middle to left bottom
+    for i in range(1, n):
+        a = []
+
+        col = c_q - i
+        row = r_q - i
+        if row > 0 and col > 0:
+            if check(row,col) == 1:
+                break
+            a.append(row)
+            a.append(col)
+        else:
+            break
+        b.append(a)
+    # middle to up Left
+    for i in range(1, n):
+        a = []
+
+        col = c_q - i
+        row = r_q + i
+        if row <= n and col > 0:
+            if check(row, col) == 1:
+                break
+            a.append(row)
+            a.append(col)
+        else:
+            break
+        b.append(a)
+
+    # middle to Left
+    for i in range(1, n):
+        a = []
+
+        col = c_q - i
+        if col > 0:
+            if check(r_q, col) == 1:
+                break
+            a.append(r_q)
+            a.append(col)
+        else:
+            break
+        b.append(a)
+
+    # middle to Top
+    for i in range(1, n - r_q + 1):
+        a = []
+
+        row = r_q + i
+        if row <= n:
+            if check(row, c_q) == 1:
+                break
+            a.append(row)
+            a.append(c_q)
+        else:
+            break
+        b.append(a)
+
+    # middle to Bottom
+    for i in range(1, r_q):
+        a = []
+
+        row = r_q - i
+        if row <= n:
+            if check(row, c_q) == 1:
+                break
+            a.append(row)
+            a.append(c_q)
+        else:
+            break
+        b.append(a)
+
+    # middle to right bottom
+    for i in range(1, n):
+        a = []
+
+        col = c_q + i
+        row = r_q - i
+        if row > 0 and col <= n:
+            if check(row, col) == 1:
+                break
+            a.append(row)
+            a.append(col)
+        else:
+            break
+        b.append(a)
+
+    # middle to right Top
+    for i in range(1, n):
+        a = []
+
+        col = c_q + i
+        row = r_q + i
+        if row <= n and col <= n:
+            if check(row, col) == 1:
+                break
+            a.append(row)
+            a.append(col)
+        else:
+            break
+        b.append(a)
+
+    # middle to Right
+    for i in range(1, n):
+        a = []
+
+        col = c_q + i
+        if col <= n:
+            if check(r_q, col) == 1:
+                break
+            a.append(r_q)
+            a.append(col)
+        else:
+            break
+        b.append(a)
+
+    #print(b)
+    print(len(b))
+
+
+if __name__ == '__main__':
+
+    nk = input().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    r_qC_q = input().split()
+
+    r_q = int(r_qC_q[0])
+
+    c_q = int(r_qC_q[1])
+
+    obstacles = []
+
+    for _ in range(k):
+        obstacles.append(list(map(int, input().rstrip().split())))
+
+    result = queensAttack(n, k, r_q, c_q, obstacles)

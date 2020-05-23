@@ -1,0 +1,11 @@
+n = list(map(int,input().rstrip().split()[:2]))
+m = list(map(int,input().rstrip().split()[:n[0]]))
+
+h = n[1]
+r = max(m) - h
+if r > 0:
+    print(r)
+else:
+    print(0)
+
+

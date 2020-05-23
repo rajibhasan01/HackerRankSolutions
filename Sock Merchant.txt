@@ -1,0 +1,39 @@
+def validity_check(n,arr):
+    if n <1 or n >100:
+        return 0
+    for i in arr:
+        if i <1 or i> 100:
+            return 0
+    return True
+def check(app,val):
+    for i in app:
+        if i == val:
+            return False
+    return True
+
+def pair_search(arr):
+    a = 0
+    app = ["0"]
+    for i in range(len(arr)):
+        c= 1
+        for j in range(len(arr)):
+            chq = check(app,arr[i])
+            if chq == True:
+                if i == j:
+                    pass
+                else:
+                    if arr[i] == arr[j]:
+                        c = c + 1
+                        if c % 2 == 0:
+                            a = a + 1
+
+
+        app.append(arr[i])
+    return a
+
+
+n = int(input())
+arr = list(map(int, input().rstrip().split()[:n]))
+chq = validity_check(n, arr)
+if chq == True:
+    print(pair_search(arr))

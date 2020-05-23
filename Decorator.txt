@@ -1,0 +1,40 @@
+def decorator_divid(func):
+    def wrapper_func(a,b):
+        print("Divide", a," and ", b, "\n")
+        print("*"*20)
+        if b == 0:
+            print("Division with zero is not allowed")
+            print("*"*20)
+            return 0
+        p=func(a,b)
+        print(p)
+        print("*"*20)
+    return wrapper_func
+
+def divid(x,y):
+    return x/y
+
+result = decorator_divid(divid)
+result(5,2)
+
+#####################################################
+
+from time import time
+
+def timing_func(func):
+    def timing(num):
+        start = time()
+        result = func(num)
+        end = time()
+        print("Eclasped time: {}".format(end-start))
+        return result
+    return timing
+
+def function(num):
+    sum = 0
+    for i in range(num):
+        sum += i
+    return sum
+
+a = timing_func(function)
+print(a(200000))

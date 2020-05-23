@@ -1,0 +1,74 @@
+
+# Complete the timeInWords function below.
+def timeInWords(h, m):
+    b = ''
+    c = ''
+    d = ''
+    a =[
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+    "twenty",
+    "twenty one",
+    "twenty two",
+    "twenty three",
+    "twenty four",
+    "twenty five",
+    "twenty six",
+    "twenty seven",
+    "twenty eight",
+    "twenty nine"]
+
+    if m > 30:
+        h = h + 1
+        m = 60 - m
+        c = " to "
+    elif m <= 30:
+        c = " past "
+    for i in range(len(a)):
+        if i == h:
+            b = a[i]
+    for j in range(len(a)+1):
+        if j == m and m!= 0 and m != 30 and m != 15 and m != 1:
+            d = a[j] + " minutes"
+        if j == m and m == 1:
+            d = a[j] + " minute"
+    if m == 15:
+        d = "quarter"
+
+    if m == 30:
+            d = "half"
+
+    if m == 0:
+        print(b + " o' clock")
+        return
+    else:
+        print(d + c + b)
+
+
+if __name__ == '__main__':
+
+    h = int(input())
+
+    m = int(input())
+
+    result = timeInWords(h, m)
+
+

@@ -1,0 +1,52 @@
+from numpy import *
+
+n = int(input())
+a= []
+for i in range(n):
+    arr = list(map(int,input().rstrip().split()[:n]))
+    a.append(arr)
+
+m = matrix(a)
+s = sum(diagonal(m))
+print(a)
+print(s)
+m1 = a[::-1]
+print(m1)
+s1 = sum(diagonal(m1))
+print(s1)
+
+ts= abs(s-s1)
+print(ts)
+
+
+########################################################
+
+from array import *
+def my_funtion(num):
+    a = []
+    d = []
+    d1 = []
+    for i in range(n):
+        val = list(map(int, input().rstrip().split()[:n]))
+        for t in range(len(val)):
+            if val[t] < -100 or val[t] > 100:
+                return "Invalid Input"
+        d.append(val[i])
+        d1.append(val[t-i])
+        a.append(val)
+        print("%dst array: "%i,val)
+        print("Diagonal..: ",d)
+        print("Opposite",d1)
+    s = add_diagonal(d)
+    print("S: ",s)
+    s1 = add_diagonal(d1)
+    print("S1: ",s1)
+
+    return abs(s-s1)
+def add_diagonal(num):
+    sum = 0
+    for i in num:
+        sum = sum + i
+    return sum
+n = int(input())
+print(my_funtion(n))

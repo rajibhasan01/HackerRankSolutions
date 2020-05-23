@@ -1,0 +1,15 @@
+def fairRations(B):
+
+    output = 0 ; M = len(B)-1
+    for i in range(M):
+        if B[i]%2 : output += 2 ; B[i+1] += 1
+    print("NO") if B[M]%2 else print(output)
+    
+
+if __name__ == '__main__':
+
+    N = int(input())
+
+    B = list(map(int, input().rstrip().split()))
+
+    result = fairRations(B)

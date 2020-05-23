@@ -1,0 +1,121 @@
+def validity_check(n,p):
+    if n < 0 or n >10**5 or p < 1 or p > n:
+        return 0
+    return True
+
+def page_number(l):
+    a = []
+    page_no = 0
+    for i in range(l):
+        a.append([])
+        for j in range(2):
+            a[i].append(page_no)
+            page_no = page_no + 1
+
+    return a
+
+def search_result(list):
+    for i in range(len(list)):
+        for j in list[i]:
+            if j == p:
+                global r
+                r = i
+                break
+
+
+    list = list[::-1]
+    for i in range(len(list)):
+        for j in list[i]:
+
+            if j == p:
+                global r1
+                r1 = i
+                break
+
+    if r < r1:
+        return r
+    else:
+        return r1
+
+
+n = int(input())
+p = int(input())
+r = 0
+r1 = 0
+
+chq = validity_check(n,p)
+
+if chq == True:
+    l = n // 2 + 1
+    arr = page_number(l)
+
+    print(search_result(arr))
+
+
+
+##################################################
+
+from numpy import *
+def validity_check(n,p):
+    if n < 1 or n > 10**5 or p < 1 or p > n:
+        return 0
+    return True
+
+
+n = int(input())
+p = int(input())
+a= []
+chq = validity_check(n,p)
+if chq == True:
+    if n%2 == 0:
+        l = n//2
+        for i in range(n+2):
+               a.append(i)
+        arr1 = array(a)
+        arr = arr1.reshape(l+1,2)
+        print(arr)
+
+        for k in range(len(arr)):
+            for c in arr[k]:
+                if c == p:
+                    s = k
+                    break
+
+        for k in range(len(arr)-1,-1,-1):
+            for c in range(len(arr[k])-1,-1,-1):
+                if arr[k][c] == p:
+                    s1 = l - k
+                    break
+
+        if s > s1:
+            print(s1)
+        else:
+            print(s)
+
+    else:
+        l = n // 2
+        for i in range(n + 1):
+            a.append(i)
+        arr1 = array(a)
+        arr = arr1.reshape(l + 1, 2)
+        print(arr)
+
+        for k in range(len(arr)):
+            for c in arr[k]:
+                if c == p:
+                    s = k
+                    break
+
+        for k in range(len(arr) - 1, -1, -1):
+            for c in range(len(arr[k]) - 1, -1, -1):
+                print(k)
+                print(arr[k][c])
+                if arr[k][c] == p:
+                    s1 = l - k
+                    break
+
+        if s > s1:
+            print(s1)
+        else:
+            print(s)
+

@@ -1,0 +1,23 @@
+
+def kaprekarNumbers(p, q):
+    result = []
+
+    for i in range(p,q+1):
+        square = str(pow(i , 2))
+        r = square[:int(len(square)/2)] if square[:int(len(square)/2)] else 0
+        l = square[int(len(square)/2):len(square)] if square[int(len(square)/2):len(square)] else 0
+
+        if (int(l) + int(r)) == i :
+            result.append(str(i))
+    if len(result) > 0:
+        print(' '.join(result))
+    else:
+        print("INVALID RANGE.")
+
+
+if __name__ == '__main__':
+    p = int(input())
+
+    q = int(input())
+
+    kaprekarNumbers(p, q)

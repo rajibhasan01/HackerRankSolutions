@@ -1,0 +1,21 @@
+def list(a):
+    for i in a:
+        yield i
+
+a = [1,3,5,6]
+x = list(a)
+print(next(x))
+
+
+
+##############################
+class List_Iter:
+    def int__(self, a):
+        self.__a = a
+        for i in a:
+            yield i
+
+a = [1,3,5,2,4,6]
+x = List_Iter()
+y= x.int__(a)
+print(y.__next__())

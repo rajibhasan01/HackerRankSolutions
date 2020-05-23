@@ -1,0 +1,15 @@
+def outerFunction(a,b,txt):
+    print("Outer Function")
+    def innerFunction():
+        print(txt)
+        x = a+b
+        return x
+    return innerFunction
+
+a = outerFunction(2,6,"Rajib")
+x = a()
+print(x)
+
+del outerFunction
+y= a()
+print(y)

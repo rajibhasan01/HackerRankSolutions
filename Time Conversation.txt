@@ -1,0 +1,50 @@
+def separate_string(arr):
+    new_array = []
+    pre_ch = arr [0]
+    new_word = arr[0]
+    for x , i in enumerate(arr[1:]):
+        if i.isnumeric() and pre_ch.isnumeric():
+            new_word += i
+        elif i.isalpha() and pre_ch.isalpha():
+            new_word += i
+
+        elif i == ":":
+            new_array.append(new_word)
+            new_word = i
+        else:
+            if i == ":" or new_word == ":":
+                pass
+            else:
+                new_array.append(new_word)
+            new_word = i
+        pre_ch = i
+
+        if x == len(arr) - 2:
+            new_array.append(new_word)
+            new_word =''
+    return new_array
+
+def time_format(p,num):
+    if p=="am":
+        if num[0]=="12":
+            return "{}:{}:{}".format("00",num[1],num[2])
+        else:
+            return "{}:{}:{}".format(num[0],num[1],num[2])
+    else:
+        if num[0] == "12":
+            return "{}:{}:{}".format(num[0],num[1],num[2])
+        else:
+            num[0]= 12+int(num[0])
+            return "{}:{}:{}".format(num[0],num[1],num[2])
+
+
+
+n = input()
+a = separate_string(n)
+l = len(a)-1
+if int(a[1])>=00 and int(a[1])<=59 and int(a[2])>=00 and int(a[2])<=59:
+    if a[l] == "am" or a[l] == "Am" or a[l] == "AM" or a[l] == "aM":
+        print(time_format("am", a[:l]))
+
+    elif a[l] == "pm" or a[l] == "Pm" or a[l] == "PM" or a[l] == "pM":
+        print(time_format("p", a[:l]))
